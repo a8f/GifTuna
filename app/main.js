@@ -212,7 +212,7 @@ ipcMain.on('getThumbnail', (event, input, palette, time, settings) => {
   var diff_mode = settings.color.diff_mode ? settings.color.diff_mode : "rectangle";
   var diff_mode = settings.loop ? settings.loop : 0;
 
-  var vf = util.format("fps=%s,%s:flags=lanczos [x];[x][1:v]paletteuse=dither=%s:diff_mode=%s", fps, scaleCmd, dither, diff_mode, loop);
+  var vf = util.format("fps=%s,%s:flags=lanczos [x];[x][1:v]paletteuse=dither=%s:diff_mode=%s", fps, scaleCmd, dither, diff_mode);
   console.log(vf);
   if(ffmpeg_ps) ffmpeg_ps.kill();
   ffmpeg_ps = spawn(ffmpeg_path, [
